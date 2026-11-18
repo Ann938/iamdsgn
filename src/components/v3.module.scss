@@ -32,7 +32,7 @@
 .bigToggle { position: relative; flex: none; width: u(350); height: u(184); border-radius: u(184); background: var(--accent); cursor: pointer; transition: background-color 0.5s var(--ease), box-shadow 0.3s; box-shadow: inset 0 0 0 u(6) var(--ink); &[data-on="false"] { background: #3a3a38; } &:hover { box-shadow: inset 0 0 0 u(6) var(--ink), 0 0 0 u(10) color-mix(in srgb, var(--accent) 35%, transparent); } &:focus-visible { outline: 3px solid var(--accent); outline-offset: 6px; } }
 .knob { position: absolute; top: u(22); left: u(188); width: u(140); height: u(140); border-radius: 50%; background: #121212; transition: left 0.55s cubic-bezier(0.7, -0.4, 0.3, 1.4); }
 .bigToggle[data-on="false"] .knob { left: u(22); background: #efebe3; }
-.heroBottom { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 4fr) minmax(0, 2fr); gap: u(40); align-items: end; margin-top: u(48); padding-top: u(24); border-top: 2px solid var(--ink); }
+.heroBottom { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: u(64); align-items: start; margin-top: u(48); padding-top: u(24); border-top: 2px solid var(--ink); }
 .claim { font: 600 u(34) / 1.15 var(--f-unb); letter-spacing: -0.03em; }
 .lead { font-size: u(17); line-height: 1.5; color: var(--muted); }
 .hint { justify-self: end; font: 500 u(12) / 1 var(--f-unb); text-transform: uppercase; color: var(--muted); }

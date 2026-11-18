@@ -34,7 +34,6 @@ export default function V3() {
         <div className={s.heroBottom}>
           <p className={s.claim}>Включаем дизайн в&nbsp;ваш продукт — и&nbsp;не&nbsp;выключаем после запуска</p>
           <p className={s.lead}>{brand.lead}</p>
-          <p className={s.hint}>← нажмите на тумблер</p>
         </div>
       </section>
 

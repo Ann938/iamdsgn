@@ -1,5 +1,5 @@
 import { brand } from "@/content";
-import { LogoChrome, LogoCobalt, LogoSalon, LogoShapes, LogoSignal, LogoToggle, MarkChrome, MarkCobalt, MarkSalon, MarkShapes, MarkSignal, MarkToggle } from "./Logos";
+import { LogoChrome, LogoCobalt, LogoShapes, LogoSignal, LogoToggle, MarkChrome, MarkCobalt, MarkShapes, MarkSignal, MarkToggle } from "./Logos";
 import s from "./brand.module.scss";
 
 const BASE = process.env.NEXT_PUBLIC_BASE_PATH || "";
@@ -24,9 +24,9 @@ const dirs: Dir[] = [
   {
     n: "02", id: "cobalt", name: "Кобальт", href: "/v2/",
     idea: "iam/dsgn — путь, как в адресной строке. Слэш становится фирменным знаком: iam/ux, iam/research, iam/team — так называются разделы, посты и мерч.",
-    why: "Эволюция нынешнего тёмно-синего, чтобы бренд узнали. Сохранили приём «светлая строка + жирная строка», добавили кобальт, стекло и свечение.",
+    why: "Светлое и воздушное: тёмно-синий из текущего бренда стал цветом текста, кобальт — акцентом. Мягкое сияние, белые карточки и 3D-витрина продукта, которая выпрямляется при прокрутке. Сохранили приём «светлая строка + жирная строка».",
     Logo: LogoCobalt, Mark: MarkCobalt,
-    colors: [{ hex: "#070B1F", name: "Ночь", dark: true }, { hex: "#3A5BFF", name: "Кобальт", dark: true }, { hex: "#DCE4FF", name: "Лёд" }, { hex: "#8D96BD", name: "Сумерки", dark: true }],
+    colors: [{ hex: "#F4F6FF", name: "Лёд" }, { hex: "#0B1033", name: "Ночь", dark: true }, { hex: "#3A5BFF", name: "Кобальт", dark: true }, { hex: "#E3E9FF", name: "Дымка" }],
     fonts: [{ role: "Заголовки", name: "Geologica", varName: "--f-geo", weight: 600, sample: "Аа" }, { role: "Текст", name: "Golos Text", varName: "--f-golos", weight: 400, sample: "Аа" }],
   },
   {
@@ -46,15 +46,7 @@ const dirs: Dir[] = [
     fonts: [{ role: "Заголовки", name: "Commissioner Light / SemiBold", varName: "--f-comm", weight: 300, sample: "Аа" }, { role: "Текст", name: "Commissioner", varName: "--f-comm", weight: 400, sample: "Аа" }],
   },
   {
-    n: "05", id: "salon", name: "Салон", href: "/v5/",
-    idea: "I am Dsgn — подпись студии, как у ателье или издательства. Курсив и монограмма iD в круге: спокойная уверенность вместо крика.",
-    why: "Тихая роскошь: слоновая кость, тёплый чёрный и бордо, антиква с курсивом, тонкие линии, римские цифры и много воздуха. Выделяет команду среди одинаковых «технологичных» сайтов.",
-    Logo: LogoSalon, Mark: MarkSalon,
-    colors: [{ hex: "#F4F0E8", name: "Кость" }, { hex: "#1A1916", name: "Чернила", dark: true }, { hex: "#6B1E2E", name: "Бордо", dark: true }, { hex: "#E7E1D5", name: "Лён" }],
-    fonts: [{ role: "Заголовки", name: "Cormorant Garamond", varName: "--f-corm", weight: 400, sample: "Аа" }, { role: "Текст", name: "Manrope", varName: "--f-man", weight: 400, sample: "Аа" }],
-  },
-  {
-    n: "06", id: "shapes", name: "Конструктор", href: "/v6/",
+    n: "05", id: "shapes", name: "Конструктор", href: "/v5/",
     idea: "Дизайн собирается из простых фигур: столбик, треугольник, круг. Метафора работы команды — сложный продукт из понятных элементов.",
     why: "Баухаус: чистые красный, синий и жёлтый, толстые чёрные линии, жёсткие тени. Фигуры на первом экране двигаются за курсором. Самый смелый и игривый.",
     Logo: LogoShapes, Mark: MarkShapes,
@@ -68,11 +60,11 @@ export default function Brand() {
     <div className={s.page}>
       <header className={s.top}>
         <p className={s.kicker}>Ребрендинг · {brand.about}</p>
-        <h1>I AM DSGN<br /><span>шесть направлений нового бренда</span></h1>
+        <h1>I AM DSGN<br /><span>пять направлений нового бренда</span></h1>
         <div className={s.was}>
           <span>Сейчас</span>
           <img src={`${BASE}/old-logo.svg`} alt="Текущий логотип I AM DSGN" />
-          <p>Тонкий шрифт без характера на тёмно-синем — бренд не запоминается и выглядит как шаблон Tilda. Ниже шесть способов сделать его современным и узнаваемым. У каждого есть логотип, знак, цвета, шрифты, носители и готовая главная страница.</p>
+          <p>Тонкий шрифт без характера на тёмно-синем — бренд не запоминается и выглядит как шаблон Tilda. Ниже пять способов сделать его современным и узнаваемым. У каждого есть логотип, знак, цвета, шрифты, носители и готовая главная страница.</p>
         </div>
       </header>
 

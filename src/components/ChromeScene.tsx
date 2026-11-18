@@ -1,14 +1,15 @@
 "use client";
 
 import { Canvas, useFrame } from "@react-three/fiber";
-import { Environment, Lightformer, MeshDistortMaterial } from "@react-three/drei";
+import { Environment, Lightformer } from "@react-three/drei";
 import { useEffect, useRef, useState } from "react";
-import type { Group } from "three";
+import type { Group, Mesh } from "three";
 
-// Капля жидкого хрома: сфера с шумовой деформацией, зеркальный металл.
+// Хромовая скульптура: торический узел, зеркальный металл; медленно вращается и наклоняется за курсором.
 // Окружение собрано из Lightformer — без загрузки HDR-файлов по сети.
 function Blob({ calm }: { calm: boolean }) {
   const g = useRef<Group>(null);
+  const knot = useRef<Mesh>(null);
   const target = useRef({ x: 0, y: 0 });
   useEffect(() => {
     const on = (e: PointerEvent) => { target.current.x = (e.clientX / innerWidth) * 2 - 1; target.current.y = (e.clientY / innerHeight) * 2 - 1; };
@@ -18,15 +19,16 @@ function Blob({ calm }: { calm: boolean }) {
   useFrame((st, dt) => {
     if (!g.current) return;
     const k = 1 - Math.exp(-3 * Math.min(dt, 0.05)); // плавно и одинаково при любом FPS
-    g.current.rotation.y += (target.current.x * 0.6 - g.current.rotation.y) * k;
-    g.current.rotation.x += (target.current.y * 0.4 - g.current.rotation.x) * k;
-    g.current.position.y = Math.sin(st.clock.elapsedTime * 0.8) * 0.06;
+    g.current.rotation.y += (target.current.x * 0.5 - g.current.rotation.y) * k;
+    g.current.rotation.x += (target.current.y * 0.35 - g.current.rotation.x) * k;
+    g.current.position.y = Math.sin(st.clock.elapsedTime * 0.8) * 0.05;
+    if (knot.current && !calm) { knot.current.rotation.z += dt * 0.18; knot.current.rotation.y += dt * 0.1; }
   });
   return (
     <group ref={g}>
-      <mesh scale={1.15}>
-        <sphereGeometry args={[1, 160, 160]} />
-        <MeshDistortMaterial color="#ffffff" metalness={1} roughness={0.14} distort={calm ? 0.2 : 0.4} speed={calm ? 0.3 : 1.5} envMapIntensity={1} />
+      <mesh ref={knot} scale={0.8} rotation={[0.4, 0.2, 0]}>
+        <torusKnotGeometry args={[1, 0.3, 360, 64, 2, 3]} />
+        <meshPhysicalMaterial color="#ffffff" metalness={1} roughness={0.09} clearcoat={1} clearcoatRoughness={0.05} envMapIntensity={1.1} />
       </mesh>
     </group>
   );

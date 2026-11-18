@@ -68,23 +68,7 @@ export function MarkChrome({ className = "" }: { className?: string }) {
   return <span className={`${s.markChrome} ${className}`} aria-hidden="true" />;
 }
 
-// 5 «Салон»: антиква с курсивом, как подпись студии; знак — монограмма в круге
-export function LogoSalon({ className = "" }: { className?: string }) {
-  return (
-    <span className={`${s.salon} ${className}`} aria-label="I AM DSGN">
-      I am <em>Dsgn</em>
-    </span>
-  );
-}
-export function MarkSalon({ className = "" }: { className?: string }) {
-  return (
-    <span className={`${s.markSalon} ${className}`} aria-hidden="true">
-      <em>i</em>D
-    </span>
-  );
-}
-
-// 6 «Конструктор»: дизайн из трёх базовых фигур — столбик (I), треугольник (A), круг (D)
+// 5 «Конструктор»: дизайн из трёх базовых фигур — столбик (I), треугольник (A), круг (D)
 export function LogoShapes({ className = "" }: { className?: string }) {
   return (
     <span className={`${s.shapes} ${className}`} aria-label="I AM DSGN">
