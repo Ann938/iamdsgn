@@ -55,17 +55,20 @@ export function MarkToggle({ className = "" }: { className?: string }) {
   );
 }
 
-// 4 «Хром»: строчный тонкий шрифт с металлическим переливом + знак-капля хрома
+// 4 «Хром»: строчный тонкий шрифт с металлическим переливом; знак — «d» в металлической рамке
 export function LogoChrome({ className = "" }: { className?: string }) {
   return (
     <span className={`${s.chrome} ${className}`} aria-label="I AM DSGN">
-      <MarkChrome />
       <span>i am <b>dsgn</b></span>
     </span>
   );
 }
 export function MarkChrome({ className = "" }: { className?: string }) {
-  return <span className={`${s.markChrome} ${className}`} aria-hidden="true" />;
+  return (
+    <span className={`${s.markChrome} ${className}`} aria-hidden="true">
+      <b>d</b>
+    </span>
+  );
 }
 
 // 5 «Конструктор»: дизайн из трёх базовых фигур — столбик (I), треугольник (A), круг (D)

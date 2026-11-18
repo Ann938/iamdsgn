@@ -1,9 +1,17 @@
 import { brand, cases, formats, services, steps } from "@/content";
-import Chrome3D from "./Chrome3D";
-import { LogoChrome, MarkChrome } from "./Logos";
+import { LogoChrome } from "./Logos";
 import s from "./v4.module.scss";
 
 const BASE = process.env.NEXT_PUBLIC_BASE_PATH || "";
+// иконки этапов: анализ, концепт, дизайн, система, поддержка — тонкие линии в цвет текста
+const stepIcons = [
+  <path key="1" d="M10.5 18a7.5 7.5 0 1 1 5.3-2.2L21 21M7 12.5l2-2.5 2 1.5 2.5-3.5" />,
+  <path key="2" d="M3 4h18v12H3zM3 9h18M8 20h8M12 16v4M7 12.5h4" />,
+  <path key="3" d="M4 20l1-4L16 5l3 3L8 19l-4 1ZM14 7l3 3M4 20h16" />,
+  <path key="4" d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 17h6M17 14v6" />,
+  <path key="5" d="M20 12a8 8 0 1 1-2.3-5.7M20 4v5h-5M9 12l2 2 4-4" />,
+];
+
 const Arrow = () => (
   <svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true">
     <path d="M7 17 17 7M8 7h9v9" />
@@ -23,7 +31,6 @@ export default function V4() {
 
       <section className={s.hero} id="top">
         <p className={s.word} aria-hidden="true">DSGN</p>
-        <div className={s.scene}><Chrome3D /></div>
         <p className={s.label}>{brand.about}</p>
         <div className={s.heroBottom}>
           <h1>Интерфейсы, которые <em>живут</em> после запуска</h1>
@@ -77,11 +84,14 @@ export default function V4() {
       </section>
 
       <section className={s.section}>
-        <div className={s.head}><span>Процесс</span><h2>Пять шагов — и дальше вместе</h2></div>
+        <div className={s.head}><span>Процесс</span><h2>Пять этапов — и дальше вместе</h2></div>
         <ol className={s.steps}>
           {steps.map((st, i) => (
             <li key={st.t} data-reveal style={{ ["--d" as string]: i }}>
-              <MarkChrome className={s.dot} />
+              <div className={s.stepTop}>
+                <span className={s.stepIcon}><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{stepIcons[i]}</svg></span>
+                <span className={s.stepNum}>{String(i + 1).padStart(2, "0")}</span>
+              </div>
               <b>{st.t}</b>
               <p>{st.d}</p>
             </li>
@@ -103,7 +113,6 @@ export default function V4() {
       </section>
 
       <section className={s.contact}>
-        <MarkChrome className={s.contactMark} />
         <a className={s.contactBig} href={brand.contact} target="_blank" rel="noopener noreferrer">Давайте <em>поговорим</em></a>
         <div className={s.links}>
           <a href={brand.tg} target="_blank" rel="noopener noreferrer">Telegram {brand.tgName}</a>
