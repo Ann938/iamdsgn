@@ -10,6 +10,15 @@
 .dir { margin: u(24) u(24) 0; padding: u(56) u(40) u(48); border-radius: u(40); background: var(--bg); color: var(--ink); }
 .signal { --bg: #f4f3ef; --ink: #0e0f12; --accent: #ff4d00; --paper: #f4f3ef; --cell: #ebe9e3; --inv: #0e0f12; --invInk: #f4f3ef; --hfont: var(--f-tight); border: 1px solid #ddd; }
 .cobalt { --bg: #070b1f; --ink: #fff; --accent: #3a5bff; --cell: #0e1433; --inv: #3a5bff; --invInk: #fff; --hfont: var(--f-geo); }
+.chrome { --bg: #050506; --ink: #e9ecf3; --accent: #e9ecf3; --cell: #0d0e12; --inv: #e9ecf3; --invInk: #050506; --hfont: var(--f-comm); }
+.salon { --bg: #f4f0e8; --ink: #1a1916; --accent: #6b1e2e; --cell: #ebe5da; --inv: #1a1916; --invInk: #f4f0e8; --hfont: var(--f-corm); }
+.shapes { --bg: #f2efe8; --ink: #111; --accent: #ff3b2f; --cell: #e6e2d8; --inv: #2c4bff; --invInk: #fff; --hfont: var(--f-dela); --c1: #2c4bff; --c2: #ff3b2f; --c3: #ffc700; }
+.shapes .inv { --c1: #fff; --c3: #ffc700; }
+.chrome .open { color: #050506; }
+.salon .open, .shapes .open { color: #fff; }
+.chrome .avatar { background: #050506; }
+.salon .avatar { background: #6b1e2e; color: #f4f0e8; }
+.shapes .avatar { background: #ffc700; --c3: #111; }
 .toggle { --bg: #efebe3; --ink: #121212; --accent: #d7ff3a; --cell: #e4dfd4; --inv: #121212; --invInk: #efebe3; --hfont: var(--f-unb); }
 
 .dirHead { display: flex; align-items: baseline; gap: u(24); h2 { font: 700 u(56) / 1 var(--hfont); letter-spacing: -0.04em; } }
@@ -42,7 +51,7 @@
 .appsRow { display: flex; align-items: center; gap: u(16); margin-top: auto; }
 .bc { display: flex; flex-direction: column; justify-content: space-between; width: u(250); height: u(150); padding: u(18); border-radius: u(10); background: var(--bg); box-shadow: 0 u(12) u(30) rgba(0, 0, 0, 0.18); font-size: u(22); small { font-size: u(10); opacity: 0.6; font-family: var(--f-golos); } small:nth-of-type(1) { margin-top: auto; } }
 .bcBack { display: grid; place-items: center; width: u(150); height: u(150); border-radius: u(10); background: var(--inv); --ink: var(--invInk); box-shadow: 0 u(12) u(30) rgba(0, 0, 0, 0.18); }
-.cobalt .bcBack { --accent: #fff; color: #3a5bff; }
+.cobalt .bcBack { --accent: #fff; --markInk: #3a5bff; }
 .toggle .bcBack { --ink: #121212; }
 .avatar { display: grid; place-items: center; width: u(110); height: u(110); border-radius: 50%; background: var(--accent); --accent: var(--inv); --ink: var(--accent); }
 .signal .avatar { background: #0e0f12; --ink: #f4f3ef; --paper: #0e0f12; --accent: #ff4d00; }
@@ -59,7 +68,10 @@
   .open { margin-left: 0; width: 100%; text-align: center; }
   .hero { grid-template-columns: minmax(0, 1fr); gap: u(20); padding: u(32) 0; }
   .logoBig { font-size: u(46); }
-  .toggle .logoBig { font-size: u(32); }
+  .toggle .logoBig, .shapes .logoBig { font-size: u(28); }
+  .chrome .logoBig, .salon .logoBig { font-size: u(40); }
+  .shapes .logoMid { font-size: u(20); }
+  .shapes .bc { font-size: u(12); }
   .toggle .logoMid { font-size: u(24); }
   .idea { font-size: u(16); }
   .grid { grid-template-columns: minmax(0, 1fr); }
@@ -80,3 +92,12 @@
 .toggle .marks .m56 { font-size: u(40); }
 .toggle .marks .m32 { font-size: u(24); }
 .toggle .avatar .m56 { font-size: u(40); }
+// знак «Конструктора» ~2,4 высоты в ширину
+.shapes .marks .m96 { font-size: u(56); }
+.shapes .marks .m56 { font-size: u(36); }
+.shapes .marks .m32 { font-size: u(22); }
+.shapes .avatar .m56 { font-size: u(30); }
+.shapes .bcBack .m56 { font-size: u(40); }
+
+// инверсия «Хрома» на светлом: металлический перелив делаем тёмным
+.chrome .inv b { background: linear-gradient(100deg, #050506 0%, #5d6375 45%, #050506 100%); -webkit-background-clip: text; background-clip: text; }

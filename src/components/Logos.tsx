@@ -32,7 +32,8 @@ export function LogoCobalt({ className = "" }: { className?: string }) {
 export function MarkCobalt({ className = "" }: { className?: string }) {
   return (
     <span className={`${s.markCobalt} ${className}`} aria-hidden="true">
-      i<i>/</i>
+      <span>i</span>
+      <i />
     </span>
   );
 }
@@ -50,6 +51,52 @@ export function MarkToggle({ className = "" }: { className?: string }) {
   return (
     <span className={`${s.markToggle} ${className}`} aria-hidden="true">
       <i />
+    </span>
+  );
+}
+
+// 4 «Хром»: строчный тонкий шрифт с металлическим переливом + знак-капля хрома
+export function LogoChrome({ className = "" }: { className?: string }) {
+  return (
+    <span className={`${s.chrome} ${className}`} aria-label="I AM DSGN">
+      <MarkChrome />
+      <span>i am <b>dsgn</b></span>
+    </span>
+  );
+}
+export function MarkChrome({ className = "" }: { className?: string }) {
+  return <span className={`${s.markChrome} ${className}`} aria-hidden="true" />;
+}
+
+// 5 «Салон»: антиква с курсивом, как подпись студии; знак — монограмма в круге
+export function LogoSalon({ className = "" }: { className?: string }) {
+  return (
+    <span className={`${s.salon} ${className}`} aria-label="I AM DSGN">
+      I am <em>Dsgn</em>
+    </span>
+  );
+}
+export function MarkSalon({ className = "" }: { className?: string }) {
+  return (
+    <span className={`${s.markSalon} ${className}`} aria-hidden="true">
+      <em>i</em>D
+    </span>
+  );
+}
+
+// 6 «Конструктор»: дизайн из трёх базовых фигур — столбик (I), треугольник (A), круг (D)
+export function LogoShapes({ className = "" }: { className?: string }) {
+  return (
+    <span className={`${s.shapes} ${className}`} aria-label="I AM DSGN">
+      <MarkShapes />
+      <span>I AM DSGN</span>
+    </span>
+  );
+}
+export function MarkShapes({ className = "" }: { className?: string }) {
+  return (
+    <span className={`${s.markShapes} ${className}`} aria-hidden="true">
+      <i /><i /><i />
     </span>
   );
 }

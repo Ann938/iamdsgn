@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geologica, Golos_Text, Inter_Tight, JetBrains_Mono, Onest, Unbounded } from "next/font/google";
+import { Commissioner, Cormorant_Garamond, Dela_Gothic_One, Geologica, Golos_Text, Inter_Tight, JetBrains_Mono, Manrope, Onest, Unbounded } from "next/font/google";
 import "@/styles/globals.scss";
 
 // Шрифты трёх направлений: 1 «Сигнал» — Inter Tight + JetBrains Mono, 2 «Кобальт» — Geologica + Golos Text, 3 «Тумблер» — Unbounded + Onest
@@ -9,6 +9,11 @@ const geo = Geologica({ variable: "--f-geo", subsets: ["latin", "cyrillic"], wei
 const golos = Golos_Text({ variable: "--f-golos", subsets: ["latin", "cyrillic"], weight: ["400", "500", "600"] });
 const unb = Unbounded({ variable: "--f-unb", subsets: ["latin", "cyrillic"], weight: ["400", "500", "600", "700", "800"] });
 const onest = Onest({ variable: "--f-onest", subsets: ["latin", "cyrillic"], weight: ["400", "500", "600"] });
+// 4 «Хром» — Commissioner, 5 «Салон» — Cormorant Garamond + Manrope, 6 «Конструктор» — Dela Gothic One + Manrope
+const comm = Commissioner({ variable: "--f-comm", subsets: ["latin", "cyrillic"], weight: ["200", "300", "400", "500", "600", "800"] });
+const corm = Cormorant_Garamond({ variable: "--f-corm", subsets: ["latin", "cyrillic"], weight: ["300", "400", "500", "600"], style: ["normal", "italic"] });
+const dela = Dela_Gothic_One({ variable: "--f-dela", subsets: ["latin", "cyrillic"], weight: "400" });
+const manrope = Manrope({ variable: "--f-man", subsets: ["latin", "cyrillic"], weight: ["400", "500", "600", "700"] });
 
 const title = "I AM DSGN — ребрендинг, три направления";
 const description = "Концепты нового бренда продуктовой команды дизайнеров I AM DSGN: логотип, цвет, шрифты и главная страница.";
@@ -24,7 +29,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="ru" className={[tight, mono, geo, golos, unb, onest].map((f) => f.variable).join(" ")}>
+    <html lang="ru" className={[tight, mono, geo, golos, unb, onest, comm, corm, dela, manrope].map((f) => f.variable).join(" ")}>
       <body>{children}</body>
     </html>
   );

@@ -1,5 +1,5 @@
 import { brand } from "@/content";
-import { LogoCobalt, LogoSignal, LogoToggle, MarkCobalt, MarkSignal, MarkToggle } from "./Logos";
+import { LogoChrome, LogoCobalt, LogoSalon, LogoShapes, LogoSignal, LogoToggle, MarkChrome, MarkCobalt, MarkSalon, MarkShapes, MarkSignal, MarkToggle } from "./Logos";
 import s from "./brand.module.scss";
 
 const BASE = process.env.NEXT_PUBLIC_BASE_PATH || "";
@@ -37,6 +37,30 @@ const dirs: Dir[] = [
     colors: [{ hex: "#EFEBE3", name: "Крем" }, { hex: "#121212", name: "Уголь", dark: true }, { hex: "#D7FF3A", name: "Лайм" }, { hex: "#E4DFD4", name: "Карта" }],
     fonts: [{ role: "Заголовки", name: "Unbounded", varName: "--f-unb", weight: 800, sample: "Аа" }, { role: "Текст", name: "Onest", varName: "--f-onest", weight: 400, sample: "Аа" }],
   },
+  {
+    n: "04", id: "chrome", name: "Хром", href: "/v4/",
+    idea: "Капля жидкого металла — дизайн, который принимает форму продукта. На сайте капля живая: 3D-объект переливается и следит за курсором.",
+    why: "Чёрный фон, тонкая типографика и металлический перелив на ключевых словах. Самое «вау» из всех: премиально и технологично, как у студий из топа Awwwards.",
+    Logo: LogoChrome, Mark: MarkChrome,
+    colors: [{ hex: "#050506", name: "Космос", dark: true }, { hex: "#E9ECF3", name: "Платина" }, { hex: "#868B98", name: "Сталь", dark: true }, { hex: "#0D0E12", name: "Графит", dark: true }],
+    fonts: [{ role: "Заголовки", name: "Commissioner Light / SemiBold", varName: "--f-comm", weight: 300, sample: "Аа" }, { role: "Текст", name: "Commissioner", varName: "--f-comm", weight: 400, sample: "Аа" }],
+  },
+  {
+    n: "05", id: "salon", name: "Салон", href: "/v5/",
+    idea: "I am Dsgn — подпись студии, как у ателье или издательства. Курсив и монограмма iD в круге: спокойная уверенность вместо крика.",
+    why: "Тихая роскошь: слоновая кость, тёплый чёрный и бордо, антиква с курсивом, тонкие линии, римские цифры и много воздуха. Выделяет команду среди одинаковых «технологичных» сайтов.",
+    Logo: LogoSalon, Mark: MarkSalon,
+    colors: [{ hex: "#F4F0E8", name: "Кость" }, { hex: "#1A1916", name: "Чернила", dark: true }, { hex: "#6B1E2E", name: "Бордо", dark: true }, { hex: "#E7E1D5", name: "Лён" }],
+    fonts: [{ role: "Заголовки", name: "Cormorant Garamond", varName: "--f-corm", weight: 400, sample: "Аа" }, { role: "Текст", name: "Manrope", varName: "--f-man", weight: 400, sample: "Аа" }],
+  },
+  {
+    n: "06", id: "shapes", name: "Конструктор", href: "/v6/",
+    idea: "Дизайн собирается из простых фигур: столбик, треугольник, круг. Метафора работы команды — сложный продукт из понятных элементов.",
+    why: "Баухаус: чистые красный, синий и жёлтый, толстые чёрные линии, жёсткие тени. Фигуры на первом экране двигаются за курсором. Самый смелый и игривый.",
+    Logo: LogoShapes, Mark: MarkShapes,
+    colors: [{ hex: "#F2EFE8", name: "Бумага" }, { hex: "#FF3B2F", name: "Красный", dark: true }, { hex: "#2C4BFF", name: "Синий", dark: true }, { hex: "#FFC700", name: "Жёлтый" }],
+    fonts: [{ role: "Заголовки", name: "Dela Gothic One", varName: "--f-dela", weight: 400, sample: "Аа" }, { role: "Текст", name: "Manrope", varName: "--f-man", weight: 500, sample: "Аа" }],
+  },
 ];
 
 export default function Brand() {
@@ -44,11 +68,11 @@ export default function Brand() {
     <div className={s.page}>
       <header className={s.top}>
         <p className={s.kicker}>Ребрендинг · {brand.about}</p>
-        <h1>I AM DSGN<br /><span>три направления нового бренда</span></h1>
+        <h1>I AM DSGN<br /><span>шесть направлений нового бренда</span></h1>
         <div className={s.was}>
           <span>Сейчас</span>
           <img src={`${BASE}/old-logo.svg`} alt="Текущий логотип I AM DSGN" />
-          <p>Тонкий шрифт без характера на тёмно-синем — бренд не запоминается и выглядит как шаблон Tilda. Ниже три способа сделать его современным и узнаваемым. У каждого есть логотип, знак, цвета, шрифты, носители и готовая главная страница.</p>
+          <p>Тонкий шрифт без характера на тёмно-синем — бренд не запоминается и выглядит как шаблон Tilda. Ниже шесть способов сделать его современным и узнаваемым. У каждого есть логотип, знак, цвета, шрифты, носители и готовая главная страница.</p>
         </div>
       </header>
 
