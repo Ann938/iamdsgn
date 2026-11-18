@@ -5,7 +5,7 @@ import s from "./brand.module.scss";
 const BASE = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 type Dir = {
-  n: string; id: string; name: string; idea: string; why: string;
+  n: string; id: string; theme?: string; name: string; idea: string; why: string;
   Logo: (p: { className?: string }) => React.ReactElement; Mark: (p: { className?: string }) => React.ReactElement;
   colors: { hex: string; name: string; dark?: boolean }[];
   fonts: { role: string; name: string; varName: string; weight: number; sample: string }[];
@@ -53,6 +53,32 @@ const dirs: Dir[] = [
     colors: [{ hex: "#F2EFE8", name: "Бумага" }, { hex: "#FF3B2F", name: "Красный", dark: true }, { hex: "#2C4BFF", name: "Синий", dark: true }, { hex: "#FFC700", name: "Жёлтый" }],
     fonts: [{ role: "Заголовки", name: "Dela Gothic One", varName: "--f-dela", weight: 400, sample: "Аа" }, { role: "Текст", name: "Manrope", varName: "--f-man", weight: 500, sample: "Аа" }],
   },
+  {
+    n: "06", id: "cobalt-word", theme: "cobalt", name: "Кобальт · Вордмарк", href: "/v6/",
+    idea: "Развитие «Кобальта» по мотивам Rejouice и Metalab: огромный iam/dsgn на всю ширину первого экрана — буквы выезжают по очереди. В тексте маленькие картинки-вставки, кейсы списком с превью за курсором.",
+    why: "Тот же светлый кобальт, но подача как у топовых агентств: смелый вордмарк, раскрывающиеся карточки услуг, большая круглая кнопка «Написать» и вордмарк в подвале.",
+    Logo: LogoCobalt, Mark: MarkCobalt,
+    colors: [{ hex: "#F2F4FB", name: "Лёд" }, { hex: "#0B1033", name: "Ночь", dark: true }, { hex: "#3A5BFF", name: "Кобальт", dark: true }, { hex: "#E1E7FF", name: "Дымка" }],
+    fonts: [{ role: "Заголовки", name: "Geologica", varName: "--f-geo", weight: 600, sample: "Аа" }, { role: "Текст", name: "Golos Text", varName: "--f-golos", weight: 400, sample: "Аа" }],
+  },
+  {
+    n: "07", id: "cobalt-mosaic", theme: "cobalt", name: "Кобальт · Мозаика", href: "/v7/",
+    idea: "Развитие «Кобальта» по мотивам Studio Freight и Cuberto: вокруг заголовка мозаика из фрагментов экранов кейсов и плиток-слов, плитки плывут за курсором. Кейсы — горизонтальная лента, которая едет при прокрутке.",
+    why: "Сразу видно, что команда делает сложные интерфейсы: работы на первом экране. Разделы с липким заголовком слева, этапы с иконками.",
+    Logo: LogoCobalt, Mark: MarkCobalt,
+    colors: [{ hex: "#F4F6FF", name: "Лёд" }, { hex: "#0B1033", name: "Ночь", dark: true }, { hex: "#3A5BFF", name: "Кобальт", dark: true }, { hex: "#E1E7FF", name: "Дымка" }],
+    fonts: [{ role: "Заголовки", name: "Geologica", varName: "--f-geo", weight: 600, sample: "Аа" }, { role: "Текст", name: "Golos Text", varName: "--f-golos", weight: 400, sample: "Аа" }],
+  },
+];
+
+// рефы — первые экраны сайтов агентств, сняты 18.11.2026
+const refs = [
+  { id: "rejouice", name: "Rejouice", url: "https://www.rejouice.com/", took: "Вордмарк на всю ширину → направление 6" },
+  { id: "metalab", name: "Metalab", url: "https://www.metalab.com/", took: "Крупное утверждение, тёмная подача → 4" },
+  { id: "studiofreight", name: "Studio Freight", url: "https://studiofreight.com/", took: "Мозаика работ вокруг заголовка → 7" },
+  { id: "cuberto", name: "Cuberto", url: "https://cuberto.com/", took: "Чистый крупный заголовок + работы → 2, 7" },
+  { id: "halolab", name: "Halo Lab", url: "https://www.halo-lab.com/", took: "Услуги карточками с иконками → 2, 7" },
+  { id: "ramotion", name: "Ramotion", url: "https://www.ramotion.com/", took: "Много воздуха, спокойная типографика → 1, 2" },
 ];
 
 export default function Brand() {
@@ -60,16 +86,16 @@ export default function Brand() {
     <div className={s.page}>
       <header className={s.top}>
         <p className={s.kicker}>Ребрендинг · {brand.about}</p>
-        <h1>I AM DSGN<br /><span>пять направлений нового бренда</span></h1>
+        <h1>I AM DSGN<br /><span>семь направлений нового бренда</span></h1>
         <div className={s.was}>
           <span>Сейчас</span>
           <img src={`${BASE}/old-logo.svg`} alt="Текущий логотип I AM DSGN" />
-          <p>Тонкий шрифт без характера на тёмно-синем — бренд не запоминается и выглядит как шаблон Tilda. Ниже пять способов сделать его современным и узнаваемым. У каждого есть логотип, знак, цвета, шрифты, носители и готовая главная страница.</p>
+          <p>Тонкий шрифт без характера на тёмно-синем — бренд не запоминается и выглядит как шаблон Tilda. Ниже семь способов сделать его современным и узнаваемым. У каждого есть логотип, знак, цвета, шрифты, носители и готовая главная страница.</p>
         </div>
       </header>
 
       {dirs.map((d) => (
-        <section key={d.id} className={`${s.dir} ${s[d.id]}`} id={d.id}>
+        <section key={d.id} className={`${s.dir} ${s[d.theme ?? d.id]}`} id={d.id}>
           <div className={s.dirHead}>
             <span className={s.num}>{d.n}</span>
             <h2>{d.name}</h2>
@@ -122,6 +148,19 @@ export default function Brand() {
           <p className={s.why}>{d.why}</p>
         </section>
       ))}
+
+      <section className={s.refs} id="refs">
+        <h2>Рефы <span>— на что смотрели</span></h2>
+        <div className={s.refsGrid}>
+          {refs.map((r) => (
+            <a key={r.id} href={r.url} target="_blank" rel="noopener noreferrer" className={s.ref}>
+              <img src={`${BASE}/refs/${r.id}.webp`} alt={`Первый экран сайта ${r.name}`} loading="lazy" />
+              <b>{r.name} ↗</b>
+              <span>{r.took}</span>
+            </a>
+          ))}
+        </div>
+      </section>
     </div>
   );
 }

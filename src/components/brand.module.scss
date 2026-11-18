@@ -58,7 +58,13 @@
 .toggle .avatar { background: #121212; --accent: #d7ff3a; --ink: #121212; }
 .why { margin-top: u(28); max-width: u(900); font-size: u(16); line-height: 1.55; opacity: 0.7; }
 
+.refs { margin: u(64) u(24) 0; padding: u(48) u(40); border-radius: u(40); background: #fff; h2 { font: 600 u(48) / 1 var(--f-geo); letter-spacing: -0.04em; margin-bottom: u(32); span { font-weight: 300; color: #8a8a8a; } } }
+.refsGrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: u(20); }
+.ref { display: grid; gap: u(8); img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; border-radius: u(14); box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08); transition: transform 0.5s var(--ease); } b { font-size: u(17); font-weight: 600; margin-top: u(4); } span { font-size: u(14); color: #777; } &:hover img { transform: translateY(-4px); } }
+
 @include mobile {
+  .refs { margin: u(12) u(8) 0; padding: u(24) u(16); border-radius: u(24); h2 { font-size: u(30); } }
+  .refsGrid { grid-template-columns: minmax(0, 1fr); }
   .top { padding: u(40) u(16) u(32); }
   .top h1 { font-size: u(56); }
   .was { grid-template-columns: minmax(0, 1fr); gap: u(12); padding: u(20); img { width: u(160); } p { font-size: u(14); } }
