@@ -1,0 +1,100 @@
+// Логотипы — всё в em, чтобы масштабировались от font-size родителя
+
+// 1 «Сигнал»
+.signal {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.28em;
+  font-family: var(--f-tight);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  white-space: nowrap;
+  b { font-weight: 800; }
+}
+.signalChip {
+  display: inline-flex;
+  align-items: center;
+  height: 1.12em;
+  padding: 0 0.32em;
+  border: 0.075em solid currentColor;
+  border-radius: 0.24em;
+  font-weight: 600;
+  font-size: 0.86em;
+  letter-spacing: -0.02em;
+}
+.signalCursor {
+  width: 0.42em;
+  height: 0.9em;
+  margin-left: -0.12em;
+  background: var(--accent, #ff4d00);
+  animation: blink 1.1s steps(1) infinite;
+}
+@keyframes blink { 50% { opacity: 0; } }
+.markSignal {
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  width: 1em;
+  height: 1em;
+  border-radius: 0.22em;
+  background: var(--ink, #0e0f12);
+  color: var(--paper, #f4f3ef);
+  font: 800 0.62em/1 var(--f-tight);
+  b { font-size: 1em; letter-spacing: -0.04em; margin-right: 0.2em; }
+  i { position: absolute; right: 0.17em; top: 50%; width: 0.13em; height: 0.36em; translate: 0 -50%; background: var(--accent, #ff4d00); }
+}
+
+// 2 «Кобальт»
+.cobalt {
+  font-family: var(--f-geo);
+  font-weight: 600;
+  letter-spacing: -0.045em;
+  line-height: 1;
+  white-space: nowrap;
+  i { font-style: normal; color: var(--accent, #3a5bff); margin: 0 0.02em; display: inline-block; transform: skewX(-8deg); font-weight: 400; }
+}
+.markCobalt {
+  display: inline-grid;
+  place-items: center;
+  width: 1em;
+  height: 1em;
+  border-radius: 0.28em;
+  background: var(--accent, #3a5bff);
+  color: #fff;
+  font: 600 0.58em/1 var(--f-geo);
+  letter-spacing: -0.05em;
+  // слэш рисуем сами: у глифа «/» в Geologica длинный вынос вниз
+  i { display: inline-block; width: 0.1em; height: 0.62em; margin-left: 0.1em; background: currentColor; opacity: 0.75; transform: skewX(-18deg); }
+}
+
+// 3 «Тумблер»
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.36em;
+  font-family: var(--f-unb);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  white-space: nowrap;
+}
+.markToggle {
+  position: relative;
+  display: inline-block;
+  width: 1.9em;
+  height: 1em;
+  border-radius: 1em;
+  background: var(--accent, #d7ff3a);
+  flex: none;
+  i {
+    position: absolute;
+    top: 0.14em;
+    right: 0.14em;
+    width: 0.72em;
+    height: 0.72em;
+    border-radius: 50%;
+    background: var(--ink, #111);
+    transition: right 0.45s var(--ease);
+  }
+}
