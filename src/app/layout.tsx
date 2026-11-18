@@ -14,7 +14,7 @@ const comm = Commissioner({ variable: "--f-comm", subsets: ["latin", "cyrillic"]
 const dela = Dela_Gothic_One({ variable: "--f-dela", subsets: ["latin", "cyrillic"], weight: "400" });
 const manrope = Manrope({ variable: "--f-man", subsets: ["latin", "cyrillic"], weight: ["400", "500", "600", "700"] });
 
-const title = "I AM DSGN — ребрендинг, три направления";
+const title = "I AM DSGN — ребрендинг, пять направлений";
 const description = "Концепты нового бренда продуктовой команды дизайнеров I AM DSGN: логотип, цвет, шрифты и главная страница.";
 
 export const metadata: Metadata = {
